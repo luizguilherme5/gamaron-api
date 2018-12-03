@@ -1,0 +1,12 @@
+site_name: gamaron-api
+site_description: API Django REST Framework para o projeto Gamaron
+repo_url: https://github.com/luizguilherme5/gamaron-api
+site_dir: site
+copyright: Copyright &copy; 2018, <a href="https://github.com/luizguilherme5">luizguilherme5</a>.
+dev_addr: 0.0.0.0:8001
+
+pages:
+  - Home: 'index.md'
+  - API:
+    - Authentication: 'api/authentication.md'
+    - Users: 'api/users.md'
