@@ -10,8 +10,8 @@ script:
 - docker-compose run --rm web bash -c "flake8 . && python wait_for_postgres.py &&
   ./manage.py test"
 after_success:
-- if [ "$TRAVIS_BRANCH" == "master" ]; then docker login --username=_ --password=${WPMdSjRaZCT6IpwDScFXrLVrZMDDC2PYXt1eL07guuQGJVw8d5Wg7+bxJq728S+QZtL0Xd1TikgtfCxH0uiSDcSMf2525CsS21Jo8dQ3Km9vokM3ISUWygmScKj93ioeFcGupVjarm+Zhk9UTuPMus9aQ4eIgDxUHffb1fu7f3pV/XZmMDHtUWtNtcKzGntSoI81Chpcnas51ye/5kY3hKbJwJyvuScr0AciuGOUiGa6G80DI7gA0DKC6GA6EcuYFFRI4i2PSPtMeeG59jYeJoa+Wszh9S9Oy8IigvYyOc6jQBDpoFH2PP2i07+ztrEYVSPamIEUbTeZ8xCIg9GUpuxe5jOtPkqmAh5m9/73ofmbVSz7lW2GJuXeGqJ4fEPSJq/A3XVEAXwOPKzDZA2OPzuAUqHxzEdsFH9E1/VXcLIoZkY83Gu8yiDZHDlxd9ktSlI3c/8taQBEmc8d8FdBBSXNqRs9XqVFsqiIVqsFnPBxGXfaaVnYIZ1p5beoI6kxxl/hOptzSDLl8ns66bYeJjVnu9MHONQbJISQnQYV6B1bApY7snYz53j9JhpgN/PazG1vfS2YbTwc+Xb4SNt17GqU9aRnWNJ9FSniWkspmjqRLk9Zqc1S1Rd3J2NSAt80LL2R9V5OKLXLc//hJfgg3oTN1pBaE64lV4CzGE1DMZY=}
-  registry.heroku.com; docker tag web registry.heroku.com/gamaron-api-prod/web; docker
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker login --username=_ --password="$HEROKU_AUTH_TOKEN" registry.heroku.com;
+  docker tag web registry.heroku.com/gamaron-api-prod/web; docker
   push registry.heroku.com/gamaron-api-prod/web; fi
 notifications:
   email: false
